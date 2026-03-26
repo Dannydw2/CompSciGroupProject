@@ -3,6 +3,8 @@
 #written by the AQA Programmer Team
 #developed in the Python 3.5.1 programming environment
 
+
+
 import math
 import random
 
@@ -216,14 +218,17 @@ class Company:
       DeliveryCosts = self._BaseCostOfDelivery + self.CalculateDeliveryCost()
     else:
       DeliveryCosts = self._BaseCostOfDelivery
-    Details += "Daily costs for company: " + str(self._DailyCosts) + "\nCost for delivering produce to outlets: " + str(DeliveryCosts) + "\n"
+
+    #print(moneyformat(self._DailyCosts))
+
+    Details += "Daily costs for company: " + moneyformat(self._DailyCosts) + "\nCost for delivering produce to outlets: " + moneyformat(DeliveryCosts) + "\n"
     for Current in range (0, len(self._Outlets)):
       ProfitLossFromThisOutlet = self._Outlets[Current].CalculateDailyProfitLoss(self._AvgCostPerMeal, self._AvgPricePerMeal)
-      Details += "Outlet " + str(Current + 1) + " profit/loss: " + str(ProfitLossFromThisOutlet) + "\n"
+      Details += "Outlet " + str(Current + 1) + " profit/loss: " + moneyformat(ProfitLossFromThisOutlet) + "\n"
       ProfitLossFromOutlets += ProfitLossFromThisOutlet
-    Details += "Previous balance for company: " + str(self._Balance) + "\n"
+    Details += "Previous balance for company: " + moneyformat(self._Balance) + "\n"
     self._Balance += ProfitLossFromOutlets - self._DailyCosts - DeliveryCosts
-    Details += "New balance for company: " + str(self._Balance)
+    Details += "New balance for company: " + moneyformat(self._Balance)
     return Details
       
   def CloseOutlet(self, ID):
@@ -504,6 +509,12 @@ class Simulation:
       elif Choice == "Q":
         print("Simulation finished, press Enter to close.")
         input()
+
+
+
+def moneyformat(num):
+  return f"£{num:.2f}"
+
 
 def Main():
   ThisSim = Simulation()
