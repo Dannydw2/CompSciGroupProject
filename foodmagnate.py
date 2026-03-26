@@ -5,6 +5,7 @@
 
 import math
 import random
+import math
 
 class Household:
   _NextID = 1
