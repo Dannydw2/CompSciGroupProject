@@ -169,7 +169,7 @@ Focused, self-contained changes. Start here if you're still finding your feet in
 
 | Task | Description |
 |------|-------------|
-| Currency formatting | Display all monetary values as `£X.XX` — pound sign, two decimal places, always. |
+| * Currency formatting | Display all monetary values as `£X.XX` — pound sign, two decimal places, always. |
 | Input validation — blank | Reject empty strings at every point the program accepts user input. |
 | Input validation — type | Where a numeric value is required, handle non-numeric input without crashing. |
 | Fuel cost floor | Prevent fuel costs from falling below zero. Add a lower bound and clamp to it. |
